@@ -94,8 +94,7 @@ footer {
 </style>
 """, unsafe_allow_html=True)
 
-# --- ADD LOGO ---
-st.image("NoteFlow AI LOGO.png", width=150)  # Change "logo.png" if your file has a different name
+
 
 # Title
 st.markdown('<h1>NoteFlow AI 📝</h1>', unsafe_allow_html=True)

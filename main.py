@@ -13,7 +13,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 os.environ["PATH"] = "/usr/local/bin:" + os.environ.get("PATH", "")
 
 # Streamlit setup
-st.set_page_config(page_title="AI Lecture Note Taker", page_icon="📝", layout="wide")
+st.set_page_config(page_title="NoteFlow AI", page_icon="📝", layout="wide")
 
 # ---- DARK TECH THEME CSS ----
 st.markdown("""
@@ -94,14 +94,16 @@ footer {
 </style>
 """, unsafe_allow_html=True)
 
+# --- ADD LOGO ---
+st.image("NoteFlow AI LOGO.png", width=150)  # Change "logo.png" if your file has a different name
+
 # Title
-st.markdown('<h1>AI Lecture Note Taker 📝</h1>', unsafe_allow_html=True)
+st.markdown('<h1>NoteFlow AI 📝</h1>', unsafe_allow_html=True)
 st.write("Upload your lecture audio and get structured AI-powered notes — powered by Whisper + GPT-5 nano 🚀")
 
 # FFmpeg check
 try:
     subprocess.run(["ffmpeg", "-version"], capture_output=True, check=True)
-    # st.success("✅ FFmpeg is ready!")
 except:
     st.error("❌ FFmpeg not found. Please install FFmpeg")
     st.stop()
@@ -202,5 +204,3 @@ if uploaded_file:
                 os.remove(cleaned_path)
             except:
                 pass
-
-
